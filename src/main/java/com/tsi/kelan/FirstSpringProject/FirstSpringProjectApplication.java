@@ -28,7 +28,7 @@ public class FirstSpringProjectApplication {
 	}
 
 
-
+//Used to retrieve all actors in the database
 	@GetMapping("/all_actors")
 	public @ResponseBody
 	Iterable<Actor>getAllActors(){
