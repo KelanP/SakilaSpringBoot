@@ -28,7 +28,7 @@ public class FirstSpringProjectApplication {
 	}
 
 
-//CRUD METHOD FOR ACTOR TABLE
+//CRUD METHODS FOR ACTOR TABLE
 	@GetMapping("/all_actors")
 	public @ResponseBody
 	Iterable<Actor>getAllActors(){
