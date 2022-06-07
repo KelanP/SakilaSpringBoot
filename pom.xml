@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tsi.kelan</groupId>
-	<artifactId>FirstSpringProject</artifactId>
+	<artifactId>SakilaSpringProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>FirstSpringProject</name>
+	<name>SakilaSpringProject</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<maven.compiler.source>18</maven.compiler.source>
@@ -63,7 +63,6 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.8.2</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->

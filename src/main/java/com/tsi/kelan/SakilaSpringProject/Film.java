@@ -1,4 +1,4 @@
-package com.tsi.kelan.FirstSpringProject;
+package com.tsi.kelan.SakilaSpringProject;
 
 import javax.persistence.*;
 import javax.persistence.Id;

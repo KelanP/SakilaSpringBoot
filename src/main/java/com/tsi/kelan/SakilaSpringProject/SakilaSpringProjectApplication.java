@@ -1,4 +1,4 @@
-package com.tsi.kelan.FirstSpringProject;
+package com.tsi.kelan.SakilaSpringProject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -13,17 +13,17 @@ import java.util.Optional;
 @RequestMapping("/home")
 
 
-public class FirstSpringProjectApplication {
+public class SakilaSpringProjectApplication {
 
 	@Autowired
 	private ActorRepository actorRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstSpringProjectApplication.class, args);
+		SpringApplication.run(SakilaSpringProjectApplication.class, args);
 	}
 
 
-	public FirstSpringProjectApplication(ActorRepository actorRepository){
+	public SakilaSpringProjectApplication(ActorRepository actorRepository){
 		this.actorRepository = actorRepository;
 	}
 
@@ -52,7 +52,7 @@ public class FirstSpringProjectApplication {
 	public @ResponseBody
 	Actor updateActorById(@PathVariable(value="id") int id, @RequestBody Actor actor){
 		Actor newActor = actorRepository.save(actor);
-		return actorRepository.save(actor);};
+		return actorRepository.save(newActor);};
 
 
 	@PostMapping("/actor/create")
