@@ -25,7 +25,7 @@ class SakilaSpringProjectApplicationTests {
 		underTest = new SakilaSpringProjectApplication(actorRepository);
 	}
 	@Test
-	void getAllActors() {
+	void testGetAllActors() {
 		//when running the getAllActors method
 		underTest.getAllActors();
 		//check to see if it is finding all actors in the DB
@@ -33,19 +33,19 @@ class SakilaSpringProjectApplicationTests {
 	}
 
 	@Test
-	void getActorById() {
+	void testGetActorById() {
 		underTest.getActorById(2); //when an actor id of 2 is selected
 		verify(actorRepository).findById(2); //is id=2 queried from the DB
 	}
 
 	@Test
-	void deleteActorById() {
+	void testDeleteActorById() {
 		underTest.deleteActorById(2);
 		verify(actorRepository).deleteById(2);
 	}
 
 	@Test
-	void updateActorById() {
+	void testUpdateActorById() {
 		underTest.updateActorById(2,actor);
 		verify(actorRepository).save(actor);
 
@@ -56,7 +56,7 @@ class SakilaSpringProjectApplicationTests {
 	}
 
 	@Test
-	void createNewActor() {
+	void testCreateNewActor() {
 		underTest.createNewActor(actor);
 		verify(actorRepository).save(actor);
 	}
