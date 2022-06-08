@@ -3,12 +3,14 @@ package com.tsi.kelan.SakilaSpringProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 
 @SpringBootApplication
+@ImportResource({"classpath*:application-context.xml"})
 @RestController
 @RequestMapping("/home")
 
