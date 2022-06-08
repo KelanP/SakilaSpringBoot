@@ -12,7 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-@ContextConfiguration(locations = "/test-context.xml")
 @ExtendWith(MockitoExtension.class)
 class SakilaSpringProjectApplicationTests {
 
