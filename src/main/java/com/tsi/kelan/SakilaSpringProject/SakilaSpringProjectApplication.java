@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Optional;
 
 
@@ -24,11 +27,27 @@ public class SakilaSpringProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaSpringProjectApplication.class, args);
+		connectToDatabase();
 	}
 
 
 	public SakilaSpringProjectApplication(ActorRepository actorRepository){
 		this.actorRepository = actorRepository;
+
+	}
+
+	public static void connectToDatabase(){
+		String url = "jdbc:mysql://localhost:3306/sakila";
+		String username = "springuser";
+		String password = "password";
+
+		System.out.println("Connecting to database...");
+
+		try (Connection connection = DriverManager.getConnection(url, username, password)) {
+			System.out.println("Database connected!");
+		} catch (SQLException e) {
+			throw new IllegalStateException("Cannot connect the database!", e);
+		}
 	}
 
 
