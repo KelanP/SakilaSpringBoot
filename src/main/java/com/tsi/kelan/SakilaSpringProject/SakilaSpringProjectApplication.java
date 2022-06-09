@@ -19,6 +19,8 @@ public class SakilaSpringProjectApplication {
 
 	@Autowired
 	private ActorRepository actorRepository;
+	@Autowired
+	private FilmRepository filmRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaSpringProjectApplication.class, args);
@@ -31,7 +33,7 @@ public class SakilaSpringProjectApplication {
 
 
 //CRUD METHODS FOR ACTOR TABLE
-	@GetMapping("/all_actors")
+	@GetMapping("/actor/all")
 	public @ResponseBody
 	Iterable<Actor>getAllActors(){
 		return actorRepository.findAll();
@@ -49,19 +51,63 @@ public class SakilaSpringProjectApplication {
 		return displayActor + "\n----- This item has been deleted -----";
 	}
 
-
 	@PutMapping("/actor/update/{id}")
 	public @ResponseBody
 	Actor updateActorById(@PathVariable(value="id") int id, @RequestBody Actor actor){
-		Actor newActor = actorRepository.save(actor);
-		return actorRepository.save(newActor);};
+		if (actorRepository.existsById(id) ==true){
+			actorRepository.save(actor);
+			return actorRepository.save(actor);}
 
+		else return null;
+
+		}
 
 	@PostMapping("/actor/create")
 	public @ResponseBody
 	Actor createNewActor(@RequestBody Actor actor){
-		Actor newActor = actorRepository.save(actor);
-		return newActor;
+		actorRepository.save(actor);
+		return actor;
 	}
+
+	//CRUD METHODS FOR FILM TABLE
+	@GetMapping("/film/all")
+	public @ResponseBody
+	Iterable<Film>getAllFilms(){
+		return filmRepository.findAll();
+	}
+
+	@GetMapping("/film/{id}")
+	public @ResponseBody
+	Optional<Film> getFilmById(@PathVariable(value="id") int id){
+		return filmRepository.findById(id);
+	}
+	@PostMapping("/film/create")
+	public @ResponseBody
+	Film createNewFilm(@RequestBody Film userInputFilm){
+		filmRepository.save(userInputFilm);
+		return userInputFilm;
+	}
+
+	@DeleteMapping("/film/delete/{id}")
+	public @ResponseBody String deleteFilmById(@PathVariable(value="id")int id){
+		filmRepository.deleteById(id);
+		return "----- This item of film_id: " + id + ", has been deleted -----";
+	}
+
+	@PutMapping("/film/update/{id}")
+	public @ResponseBody
+	Film updateFilmById(@PathVariable(value="id") int id, @RequestBody Film userInputFilm){
+		if (filmRepository.existsById(id) ==true){
+			filmRepository.save(userInputFilm);
+			return filmRepository.save(userInputFilm);}
+
+		else return null;
+
+	}
+
+
+
+
+
 
 }

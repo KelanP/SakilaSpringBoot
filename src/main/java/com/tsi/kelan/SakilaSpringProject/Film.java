@@ -9,6 +9,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Film {
     //attributes
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int film_id;
 
     private String title;
@@ -19,7 +20,7 @@ public class Film {
 
     private int language_id;
 
-    private int original_language_id;
+    private String original_language_id;
 
     private int rental_duration;
 
@@ -47,7 +48,7 @@ public class Film {
         this.description = description;
         this.release_year = release_year;
         this.language_id = language_id;
-        this.original_language_id = original_language_id;
+        //this.original_language_id = original_language_id;
         this.rental_duration = rental_duration;
         this.rental_rate = rental_rate;
         this.length = length;
@@ -103,12 +104,12 @@ public class Film {
         this.language_id = language_id;
     }
 
-    public int getOriginal_language_id() {
-        return original_language_id;
+    public String getOriginal_language_id() {
+       return original_language_id;
     }
 
-    public void setOriginal_language_id(int original_language_id) {
-        this.original_language_id = original_language_id;
+   public void setOriginal_language_id( String original_language_id) {
+       this.original_language_id = (original_language_id);
     }
 
     public int getRental_duration() {
