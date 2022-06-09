@@ -82,7 +82,7 @@ public class SakilaSpringProjectApplication {
 		}
 
 	@PostMapping("/actor/create")
-	public @ResponseBody
+	public  @ResponseBody
 	Actor createNewActor(@RequestBody Actor actor){
 		actorRepository.save(actor);
 		return actor;
