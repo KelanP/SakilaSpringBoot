@@ -38,13 +38,18 @@ class SakilaSpringProjectApplicationTests {
 
 	@Test
 	void testGetActorById() {
-		underTest.getActorById(2); //when an actor id of 2 is selected
-		verify(actorRepository).findById(2); //is id=2 queried from the DB
+		actor = new Actor(54, "Pavan","Pattni");
+		underTest.getActorById(54); //when an actor id of 2 is selected
+
+		ArgumentCaptor<Integer> actorArgumentCaptor = ArgumentCaptor.forClass(Integer.class);
+		verify(actorRepository).findById(actorArgumentCaptor.capture()); //is id=2 queried from the DB
+		Integer capturedActorID = actorArgumentCaptor.getValue();
+
+		Assertions.assertEquals(54,capturedActorID);
 	}
 
 	@Test
 	void testDeleteActorById() {
-		Actor actor2 = new Actor(2, "Pavan","Pattni");
 		underTest.deleteActorById(2);
 		verify(actorRepository).deleteById(2);
 	}

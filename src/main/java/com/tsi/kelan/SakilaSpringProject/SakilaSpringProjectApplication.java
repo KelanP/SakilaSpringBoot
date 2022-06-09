@@ -42,7 +42,7 @@ public class SakilaSpringProjectApplication {
 	@GetMapping("/actor/{id}") //request will look like ".../actor/?id=1"
 	public @ResponseBody
 	Optional<Actor> getActorById(@PathVariable(value="id") int id){
-		return actorRepository.findById(id);};
+		return actorRepository.findById(id);}
 
 	@DeleteMapping("/actor/delete/{id}")
 	public @ResponseBody String deleteActorById(@PathVariable(value="id")int id){
@@ -54,7 +54,7 @@ public class SakilaSpringProjectApplication {
 	@PutMapping("/actor/update/{id}")
 	public @ResponseBody
 	Actor updateActorById(@PathVariable(value="id") int id, @RequestBody Actor actor){
-		if (actorRepository.existsById(id) ==true){
+		if (actorRepository.existsById(id)){
 			actorRepository.save(actor);
 			return actorRepository.save(actor);}
 
@@ -97,7 +97,7 @@ public class SakilaSpringProjectApplication {
 	@PutMapping("/film/update/{id}")
 	public @ResponseBody
 	Film updateFilmById(@PathVariable(value="id") int id, @RequestBody Film userInputFilm){
-		if (filmRepository.existsById(id) ==true){
+		if (filmRepository.existsById(id)){
 			filmRepository.save(userInputFilm);
 			return filmRepository.save(userInputFilm);}
 
