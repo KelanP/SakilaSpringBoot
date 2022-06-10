@@ -1,5 +1,10 @@
 package com.tsi.kelan.SakilaSpringProject;
 
+import com.tsi.kelan.SakilaSpringProject.entities.Actor;
+import com.tsi.kelan.SakilaSpringProject.entities.Film;
+import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
+import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
+import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +29,8 @@ public class SakilaSpringProjectApplication {
 	private ActorRepository actorRepository;
 	@Autowired
 	private FilmRepository filmRepository;
+	@Autowired
+	private FilmActorRepository filmActorRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaSpringProjectApplication.class, args);
@@ -34,6 +41,11 @@ public class SakilaSpringProjectApplication {
 	public SakilaSpringProjectApplication(ActorRepository actorRepository){
 		this.actorRepository = actorRepository;
 
+	}
+
+	public SakilaSpringProjectApplication(FilmRepository filmRepository, FilmActorRepository filmActorRepository) {
+		this.filmRepository = filmRepository;
+		this.filmActorRepository = filmActorRepository;
 	}
 
 	public static void connectToDatabase(){
@@ -88,7 +100,7 @@ public class SakilaSpringProjectApplication {
 		return actor;
 	}
 
-	//CRUD METHODS FOR FILM TABLE
+//CRUD METHODS FOR FILM TABLE
 	@GetMapping("/film/all")
 	public @ResponseBody
 	Iterable<Film>getAllFilms(){
@@ -123,6 +135,8 @@ public class SakilaSpringProjectApplication {
 		else return null;
 
 	}
+
+//CRUD METHODS FOR FILM_ACTOR
 
 
 

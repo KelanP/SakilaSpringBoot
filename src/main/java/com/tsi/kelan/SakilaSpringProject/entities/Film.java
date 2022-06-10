@@ -1,4 +1,4 @@
-package com.tsi.kelan.SakilaSpringProject;
+package com.tsi.kelan.SakilaSpringProject.entities;
 
 import javax.persistence.*;
 import javax.persistence.Id;

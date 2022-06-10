@@ -1,13 +1,12 @@
 package com.tsi.kelan.SakilaSpringProject.cucumberStepDefs;
 
-import com.tsi.kelan.SakilaSpringProject.Actor;
-import com.tsi.kelan.SakilaSpringProject.ActorRepository;
+import com.tsi.kelan.SakilaSpringProject.entities.Actor;
+import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
 import com.tsi.kelan.SakilaSpringProject.SakilaSpringProjectApplication;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class addActorStepDef {
 

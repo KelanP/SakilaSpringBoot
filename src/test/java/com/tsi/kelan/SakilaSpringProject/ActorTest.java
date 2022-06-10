@@ -1,5 +1,6 @@
 package com.tsi.kelan.SakilaSpringProject;
 
+import com.tsi.kelan.SakilaSpringProject.entities.Actor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
