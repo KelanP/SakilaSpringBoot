@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ImportResource;
 
@@ -17,6 +18,7 @@ import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
 @ImportResource({"classpath*:application-context.xml"})
 class SakilaSpringProjectApplicationTests {
 

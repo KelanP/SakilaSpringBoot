@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.Random;
 
 
 @SpringBootApplication
@@ -113,6 +114,18 @@ public class SakilaSpringProjectApplication {
 	Optional<Film> getFilmById(@PathVariable(value="id") int id){
 		return filmRepository.findById(id);
 	}
+
+	@GetMapping("/film/random")
+	public @ResponseBody Optional<Film>getRandomFilm(){
+		Long numberOfFilms = filmRepository.count();
+		int intNumberOfFilms = numberOfFilms.intValue();
+		Random random = new Random();
+		int randomFilmID = random.nextInt(intNumberOfFilms);
+		return filmRepository.findById(randomFilmID);
+	}
+
+
+
 	@PostMapping("/film/create")
 	public @ResponseBody
 	Film createNewFilm(@RequestBody Film userInputFilm){
@@ -143,6 +156,7 @@ public class SakilaSpringProjectApplication {
 	Iterable<FilmActor> getAllFilmActors(){
 		return filmActorRepository.findAll();
 	}
+
 
 
 
