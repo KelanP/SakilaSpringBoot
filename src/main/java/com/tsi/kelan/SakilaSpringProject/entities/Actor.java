@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.persistence.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.Instant;
+
 @Entity
 @Table(name="actor")
 public class Actor {
@@ -11,9 +13,15 @@ public class Actor {
     //attributes
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "actor_id", nullable = false)
     private int actor_id;
+    @Column(name = "first_name", nullable = false, length = 45)
     private String first_name;
+    @Column(name = "last_name", nullable = false, length = 45)
     private String last_name;
+
+    @Column(name = "last_update", nullable = false)
+    private Instant lastUpdate;
 
 
     //constructors
@@ -63,5 +71,13 @@ public class Actor {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
+    }
+
+    public Instant getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Instant lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 }

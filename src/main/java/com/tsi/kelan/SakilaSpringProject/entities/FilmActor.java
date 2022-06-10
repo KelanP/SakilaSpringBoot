@@ -1,15 +1,13 @@
 package com.tsi.kelan.SakilaSpringProject.entities;
 
-import com.tsi.kelan.SakilaSpringProject.entities.Actor;
-import com.tsi.kelan.SakilaSpringProject.entities.Film;
-
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
 @Table(name = "film_actor")
 public class FilmActor {
-
+    @EmbeddedId
+    private FilmActorId id;
 
     @MapsId("actorId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -24,7 +22,13 @@ public class FilmActor {
     @Column(name = "last_update", nullable = false)
     private Instant lastUpdate;
 
+    public FilmActorId getId() {
+        return id;
+    }
 
+    public void setId(FilmActorId id) {
+        this.id = id;
+    }
 
     public Actor getActor() {
         return actor;

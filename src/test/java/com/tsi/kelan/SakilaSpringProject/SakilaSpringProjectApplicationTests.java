@@ -64,14 +64,14 @@ class SakilaSpringProjectApplicationTests {
 		Actor actorInitial = new Actor(2,"Ryan","McKay");
 		actor = new Actor("Rian","McKay");
 		underTest.createNewActor(actor);
-		underTest.updateActorById(2,actor);
+		underTest.updateActorById(2, actor);
 
 		//then: check to see if the actor is updated
 		ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
 		verify(actorRepository).save(actorArgumentCaptor.capture());
 
 		Actor actorArgumentCaptorValue = actorArgumentCaptor.getValue();
-		Assertions.assertEquals(actor,actorArgumentCaptorValue);
+		Assertions.assertEquals(actor, actorArgumentCaptorValue);
 
 
 	}
@@ -89,7 +89,7 @@ class SakilaSpringProjectApplicationTests {
 
 		Actor capturedActor = actorArgumentCaptor.getValue();
 
-		Assertions.assertEquals(actor,capturedActor);
+		Assertions.assertEquals(actor, capturedActor);
 
 	}
 }
