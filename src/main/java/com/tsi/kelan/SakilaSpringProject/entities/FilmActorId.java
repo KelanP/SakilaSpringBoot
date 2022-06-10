@@ -1,5 +1,6 @@
 package com.tsi.kelan.SakilaSpringProject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+
 public class FilmActorId implements Serializable {
     private static final long serialVersionUID = 457197226001553197L;
     @Column(name = "actor_id", nullable = false)

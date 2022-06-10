@@ -3,6 +3,8 @@ package com.tsi.kelan.SakilaSpringProject.cucumberStepDefs;
 import com.tsi.kelan.SakilaSpringProject.entities.Actor;
 import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
 import com.tsi.kelan.SakilaSpringProject.SakilaSpringProjectApplication;
+import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
+import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,8 +14,10 @@ public class addActorStepDef {
 
     private Actor testActor;
     private ActorRepository actorRepository;
+    private FilmRepository filmRepository;
+    private FilmActorRepository filmactorRepository;
 
-    SakilaSpringProjectApplication underTest = new SakilaSpringProjectApplication(actorRepository);
+    SakilaSpringProjectApplication underTest = new SakilaSpringProjectApplication(actorRepository,filmRepository,filmactorRepository);
 
 
     @Given("I have the actor's details")

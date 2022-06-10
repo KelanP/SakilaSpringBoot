@@ -29,7 +29,7 @@ class SakilaSpringProjectApplicationTests {
 
 	@BeforeEach
 	void setUp(){
-		underTest = new SakilaSpringProjectApplication(actorRepository);
+		underTest = new SakilaSpringProjectApplication(actorRepository,null,null);
 	}
 	@Test
 	void testGetAllActors() {
