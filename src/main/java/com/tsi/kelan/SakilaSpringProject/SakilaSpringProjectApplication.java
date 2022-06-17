@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Random;
 
@@ -123,9 +124,9 @@ public class SakilaSpringProjectApplication {
 		return filmRepository.findById(randomFilmID);
 	}
 
-	@GetMapping("/film/search")
-	public @ResponseBody Iterable<Film>findFilmByTitle(@RequestBody String userRequest){
-		return filmRepository.findByTitle(userRequest);
+	@GetMapping("/film/search/{searchRequest}")
+	public @ResponseBody Iterable<Film>findFilmByTitle(@PathVariable(value="searchRequest") String searchRequest){
+		return filmRepository.findByTitle(searchRequest.toUpperCase());
 	}
 
 
