@@ -9,12 +9,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class addActorStepDef {
 
     private Actor testActor;
+    @Autowired
     private ActorRepository actorRepository;
+    @Autowired
     private FilmRepository filmRepository;
+    @Autowired
     private FilmActorRepository filmactorRepository;
 
     SakilaSpringProjectApplication underTest = new SakilaSpringProjectApplication(actorRepository,filmRepository,filmactorRepository);
