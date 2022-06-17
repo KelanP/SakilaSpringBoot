@@ -20,7 +20,6 @@ import java.util.Random;
 
 
 @SpringBootApplication
-@ImportResource({"classpath*:application-context.xml"})
 @RestController
 @RequestMapping("/home")
 
@@ -122,6 +121,11 @@ public class SakilaSpringProjectApplication {
 		Random random = new Random();
 		int randomFilmID = random.nextInt(intNumberOfFilms);
 		return filmRepository.findById(randomFilmID);
+	}
+
+	@GetMapping("/film/search")
+	public @ResponseBody Iterable<Film>findFilmByTitle(@RequestBody String userRequest){
+		return filmRepository.findByTitle(userRequest);
 	}
 
 
