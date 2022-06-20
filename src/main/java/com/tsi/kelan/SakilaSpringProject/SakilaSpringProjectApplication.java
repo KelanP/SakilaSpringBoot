@@ -38,7 +38,6 @@ public class SakilaSpringProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaSpringProjectApplication.class, args);
-		connectToDatabase();
 	}
 
 
@@ -48,20 +47,6 @@ public class SakilaSpringProjectApplication {
 		this.actorRepository = actorRepository;
 		this.filmRepository = filmRepository;
 		this.filmActorRepository = filmActorRepository;
-	}
-
-	public static void connectToDatabase(){
-		String url = "jdbc:mysql://localhost:3306/sakila";
-		String username = "springuser";
-		String password = "password";
-
-		System.out.println("Connecting to database...");
-
-		try (Connection connection = DriverManager.getConnection(url, username, password)) {
-			System.out.println("Database connected!");
-		} catch (SQLException e) {
-			throw new IllegalStateException("Cannot connect the database!", e);
-		}
 	}
 
 

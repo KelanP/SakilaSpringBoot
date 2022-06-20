@@ -14,9 +14,9 @@ class NavBar extends React.Component{
                     </Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#films">Our Films</Nav.Link>
+                        <Nav.Link target = "_blank" href="https://sakilaspringproject-1655722832050.azurewebsites.net/home/film/all">Our Films</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <Nav.Link href="#location">Find Us</Nav.Link>
+                        <Nav.Link href="../src/main/frontend/public/location.html">Find Us</Nav.Link>
                     </Nav>
                 </Container>
         </Navbar>
