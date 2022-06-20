@@ -30,9 +30,10 @@ class SakilaSpringProjectApplicationTests {
 	private SakilaSpringProjectApplication underTest;
 
 	@BeforeEach
-	void setUp(){
-		underTest = new SakilaSpringProjectApplication(actorRepository,null,null);
+	void setUp() {
+		underTest = new SakilaSpringProjectApplication(actorRepository, null, null);
 	}
+
 	@Test
 	void testGetAllActors() {
 		//when running the getAllActors method
@@ -43,14 +44,14 @@ class SakilaSpringProjectApplicationTests {
 
 	@Test
 	void testGetActorById() {
-		actor = new Actor(54, "Pavan","Pattni");
+		actor = new Actor(54, "Pavan", "Pattni");
 		underTest.getActorById(54); //when an actor id of 2 is selected
 
 		ArgumentCaptor<Integer> actorArgumentCaptor = ArgumentCaptor.forClass(Integer.class);
 		verify(actorRepository).findById(actorArgumentCaptor.capture()); //is id=2 queried from the DB
 		Integer capturedActorID = actorArgumentCaptor.getValue();
 
-		Assertions.assertEquals(54,capturedActorID);
+		Assertions.assertEquals(54, capturedActorID);
 	}
 
 	@Test
@@ -63,8 +64,8 @@ class SakilaSpringProjectApplicationTests {
 	@Test
 	void testUpdateActorById() {
 		//when: an actor has new information to be updated
-		Actor actorInitial = new Actor(2,"Ryan","McKay");
-		actor = new Actor("Rian","McKay");
+		Actor actorInitial = new Actor(2, "Ryan", "McKay");
+		actor = new Actor("Rian", "McKay");
 		underTest.createNewActor(actor);
 		underTest.updateActorById(2, actor);
 
@@ -81,7 +82,7 @@ class SakilaSpringProjectApplicationTests {
 	@Test
 	void testCreateNewActor() {
 		//when: a new actor is created and added
-		actor = new Actor("John","Phillips");
+		actor = new Actor("John", "Phillips");
 		underTest.createNewActor(actor);
 
 		//then: check if it has been added
@@ -95,3 +96,4 @@ class SakilaSpringProjectApplicationTests {
 
 	}
 }
+
