@@ -96,7 +96,8 @@
     <dependency> 
       <groupId>javax.xml.bind</groupId>  
       <artifactId>jaxb-api</artifactId> 
-    </dependency>  
+    </dependency>
+
     <dependency> 
       <groupId>org.seleniumhq.selenium</groupId>  
       <artifactId>selenium-java</artifactId>  
@@ -127,7 +128,7 @@
             </goals> 
           </execution> 
         </executions> 
-      </plugin>  
+      </plugin>
       <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
