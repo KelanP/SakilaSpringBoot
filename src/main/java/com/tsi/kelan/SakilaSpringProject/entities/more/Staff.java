@@ -41,7 +41,7 @@ public class Staff {
     private String password;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -123,12 +123,28 @@ public class Staff {
         this.password = password;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Staff() {
+    }
+
+    public Staff(Integer id, String firstName, String lastName, Address address, byte[] picture, String email, Store store, Boolean active, String username, String password, String lastUpdate) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.picture = picture;
+        this.email = email;
+        this.store = store;
+        this.active = active;
+        this.username = username;
+        this.password = password;
+        this.lastUpdate = lastUpdate;
+    }
 }
