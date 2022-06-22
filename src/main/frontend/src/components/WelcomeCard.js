@@ -16,7 +16,7 @@ class WelcomeCard extends React.Component{
                         up a film. It's less inconvenient than you think.
                     </Card.Text>
 
-                    <Button variant="primary" target="_blank" href={"https://sakilaspringproject-1655722832050.azurewebsites.net/home/film/random"}>Pick a film</Button>
+                    <Button id="random-film-button" variant="primary" target="_blank" href={"https://sakilaspringproject-1655722832050.azurewebsites.net/home/film/random"}>Pick a film</Button>
                 </Card.Body>
             </Card>
        );

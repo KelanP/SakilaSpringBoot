@@ -1,5 +1,7 @@
 package com.tsi.kelan.SakilaSpringProject.entities.notimportant;
 
+import com.tsi.kelan.SakilaSpringProject.entities.Customer;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;

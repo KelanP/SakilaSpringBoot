@@ -24,11 +24,11 @@ public class Film {
 
     private int rental_duration;
 
-    private long rental_rate;
+    private float rental_rate;
 
     private int length;
 
-    private long replacement_cost;
+    private float replacement_cost;
 
     private String rating;
 
@@ -120,11 +120,11 @@ public class Film {
         this.rental_duration = rental_duration;
     }
 
-    public long getRental_rate() {
+    public float getRental_rate() {
         return rental_rate;
     }
 
-    public void setRental_rate(long rental_rate) {
+    public void setRental_rate(float rental_rate) {
         this.rental_rate = rental_rate;
     }
 
@@ -136,11 +136,11 @@ public class Film {
         this.length = length;
     }
 
-    public long getReplacement_cost() {
+    public float getReplacement_cost() {
         return replacement_cost;
     }
 
-    public void setReplacement_cost(long replacement_cost) {
+    public void setReplacement_cost(float replacement_cost) {
         this.replacement_cost = replacement_cost;
     }
 

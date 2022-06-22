@@ -4,15 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import React, {useEffect, useState} from 'react';
+import {FormControl} from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import {Form} from "reactstrap";
 
 
 
 
 function FilmList() {
 
-    const [films, setFilms] = useState([]);
+    const [films, setFilms, search] = useState([])
 
-    const getData = () => {
+    const getFilmData = () => {
         fetch("https://sakilaspringproject-1655722832050.azurewebsites.net/home/film/all")
             .then((resp) => resp.json())
             .then((filmsjson) => {
@@ -23,13 +26,32 @@ function FilmList() {
             });
     };
     useEffect(() => {
-        getData();
+        getFilmData();
     }, []);
 
 
         return(
         <Card>
-            <Card.Header className="text-center">All Films</Card.Header>
+            <Card.Header >
+                <div>
+                    <h2 className={"text-center"}>All Films</h2>
+                </div>
+
+                <div>
+                    <Form className="d-flex">
+                        <FormControl
+                            type="text"
+                            placeholder="Search for a film..."
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Search</Button>
+                        <Button variant="outline-danger">Cancel</Button>
+                    </Form>
+                </div>
+
+            </Card.Header>
+
             <Card.Body>
                 <Table striped size={"sm"}>
                     <thead>
@@ -59,6 +81,7 @@ function FilmList() {
                     </tbody>
 
                 </Table>
+
             </Card.Body>
         </Card>
 
@@ -66,4 +89,4 @@ function FilmList() {
     );
 
 }
-export default FilmList
+export default FilmList;

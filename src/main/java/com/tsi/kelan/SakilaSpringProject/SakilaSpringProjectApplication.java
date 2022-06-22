@@ -1,21 +1,20 @@
 package com.tsi.kelan.SakilaSpringProject;
 
 import com.tsi.kelan.SakilaSpringProject.entities.Actor;
+import com.tsi.kelan.SakilaSpringProject.entities.Customer;
 import com.tsi.kelan.SakilaSpringProject.entities.Film;
 import com.tsi.kelan.SakilaSpringProject.entities.FilmActor;
 import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
 import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
 import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
+import com.tsi.kelan.SakilaSpringProject.repos.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Random;
 
@@ -33,6 +32,8 @@ public class SakilaSpringProjectApplication {
 	private FilmRepository filmRepository;
 	@Autowired
 	private FilmActorRepository filmActorRepository;
+	@Autowired
+	private CustomerRepository customerRepository;
 
 
 
@@ -43,10 +44,11 @@ public class SakilaSpringProjectApplication {
 
 
 
-	public SakilaSpringProjectApplication(ActorRepository actorRepository, FilmRepository filmRepository, FilmActorRepository filmActorRepository) {
+	public SakilaSpringProjectApplication(ActorRepository actorRepository, FilmRepository filmRepository, FilmActorRepository filmActorRepository,CustomerRepository customerRepository) {
 		this.actorRepository = actorRepository;
 		this.filmRepository = filmRepository;
 		this.filmActorRepository = filmActorRepository;
+		this.customerRepository = customerRepository;
 	}
 
 
@@ -111,7 +113,12 @@ public class SakilaSpringProjectApplication {
 
 	@GetMapping("/film/search/{searchRequest}")
 	public @ResponseBody Iterable<Film>findFilmByTitle(@PathVariable(value="searchRequest") String searchRequest){
-		return filmRepository.findByTitle(searchRequest.toUpperCase());
+		return filmRepository.findByTitleLike(searchRequest.toUpperCase());
+	}
+
+	@GetMapping("/film/pwrsearch/{searchRequest}")
+	public Page<Film> getAllBooks(Pageable pageable, @PathVariable("searchRequest") String keyword) {
+		return filmRepository.findAll(pageable,keyword);
 	}
 
 
@@ -147,8 +154,26 @@ public class SakilaSpringProjectApplication {
 		return filmActorRepository.findAll();
 	}
 
+//CRUD METHODS FOR CUSTOMER TABLE
 
+@GetMapping("/customer/all")
+public @ResponseBody
+Iterable<Customer>getAllCustomers(){
+	return customerRepository.findAll();
+}
 
+@GetMapping("/customer/{id}")
+public @ResponseBody
+Optional<Customer> getCustomerById(@PathVariable(value="id") int id){
+	return customerRepository.findById(id);
+}
+
+@PostMapping("/customer/create")
+public @ResponseBody
+Customer createNewCustomer(@RequestBody Customer userInputCustomer){
+	customerRepository.save(userInputCustomer);
+	return userInputCustomer;
+}
 
 
 
