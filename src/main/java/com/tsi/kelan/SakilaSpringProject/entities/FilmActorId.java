@@ -49,6 +49,12 @@ public class FilmActorId implements Serializable {
         return Objects.hash(actorId, filmId);
     }
 
+    public FilmActorId(Integer actorId, Integer filmId) {
+        this.actorId = actorId;
+        this.filmId = filmId;
+    }
 
+    public FilmActorId() {
 
+    }
 }
