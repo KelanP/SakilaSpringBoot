@@ -39,21 +39,14 @@ public class seleniumTest{
         driver.get("http://localhost:3000/"); //navigates to the URL
         WebElement randButton = driver.findElement(By.id("random-film-button"));
 
-        String originalWindow = driver.getWindowHandle(); //Store the ID of the original window
+
         assert driver.getWindowHandles().size() == 1; //Check we don't have other windows open already
         randButton.click();
 
-        //Loop through until we find a new window handle
-        for (String windowHandle : driver.getWindowHandles()) {
-            if(!originalWindow.contentEquals(windowHandle)) {
-                driver.switchTo().window(windowHandle);
-                break;
-            }
-        }
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //sets max wait time of 10 seconds
-        wait.until(presenceOfElementLocated(By.cssSelector("#randomFilm > h4"))); //title of random film is a blank JSON page
+        wait.until(presenceOfElementLocated(By.cssSelector("#randomFilm > h5"))); //title of random film is a blank JSON page
 
-        WebElement randomFilmTitle = driver.findElement(By.cssSelector("#randomFilm > h4")); //check to see if the 1000th table row is displayed
+        WebElement randomFilmTitle = driver.findElement(By.cssSelector("#randomFilm > h5")); //check to see if the 1000th table row is displayed
         boolean isDisplayed = randomFilmTitle.isDisplayed();
         Assertions.assertTrue(isDisplayed);
 
@@ -119,11 +112,6 @@ public class seleniumTest{
 
     }
 
-    @Test
-    public void accountCreationTest(){
 
-
-
-    }
 
 }

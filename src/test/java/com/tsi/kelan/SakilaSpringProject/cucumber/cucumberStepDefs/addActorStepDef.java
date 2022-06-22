@@ -44,6 +44,5 @@ public class addActorStepDef {
 
         Assertions.assertEquals(testActor,
                 underTest.createNewActor(testActor));
-
     }
 }

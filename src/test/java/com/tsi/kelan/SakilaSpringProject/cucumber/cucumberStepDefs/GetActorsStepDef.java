@@ -8,7 +8,6 @@ import java.net.HttpURLConnection;
 
 
 public class GetActorsStepDef {
-    HttpURLConnection conn;
     @Given("The server has started")
     public void the_server_has_started() {
 
