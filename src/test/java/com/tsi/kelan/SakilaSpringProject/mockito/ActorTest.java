@@ -4,6 +4,7 @@ import com.tsi.kelan.SakilaSpringProject.entities.Actor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 
 
 public class ActorTest {
@@ -15,9 +16,11 @@ public class ActorTest {
         testActor.setFirst_name("Bondman");
         testActor.setLast_name("Namdnob");
         testActor.setActor_id(9340);
+        testActor.setLastUpdate(Instant.parse("1970-01-01T00:00:00Z"));
         Assertions.assertEquals("Bondman", testActor.getFirst_name());
         Assertions.assertEquals("Namdnob", testActor.getLast_name());
         Assertions.assertEquals(9340, testActor.getActor_id());
+        Assertions.assertEquals(Instant.parse("1970-01-01T00:00:00Z"),testActor.getLastUpdate());
     }
 
     @Test
