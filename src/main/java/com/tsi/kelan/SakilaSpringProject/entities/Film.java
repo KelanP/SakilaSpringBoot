@@ -32,7 +32,7 @@ public class Film {
 
     private String rating;
 
-    private String special_feature;
+    private String special_features;
 
     private String last_update;
 
@@ -42,19 +42,19 @@ public class Film {
 
     //constructors
 
-    public Film(int film_id, String title, String description, int release_year, int language_id, int original_language_id, int rental_duration, long rental_rate, int length, long replacement_cost, String rating, String special_feature, String last_update) {
+    public Film(int film_id, String title, String description, int release_year, int language_id, String original_language_id, int rental_duration, float rental_rate, int length, float replacement_cost, String rating, String special_feature, String last_update) {
         this.film_id = film_id;
         this.title = title;
         this.description = description;
         this.release_year = release_year;
         this.language_id = language_id;
-        //this.original_language_id = original_language_id;
+        this.original_language_id = original_language_id;
         this.rental_duration = rental_duration;
         this.rental_rate = rental_rate;
         this.length = length;
         this.replacement_cost = replacement_cost;
         this.rating = rating;
-        this.special_feature = special_feature;
+        this.special_features = special_feature;
         this.last_update = last_update;
     }
 
@@ -152,12 +152,12 @@ public class Film {
         this.rating = rating;
     }
 
-    public String getSpecial_feature() {
-        return special_feature;
+    public String getSpecial_features() {
+        return special_features;
     }
 
-    public void setSpecial_feature(String special_feature) {
-        this.special_feature = special_feature;
+    public void setSpecial_features(String special_feature) {
+        this.special_features = special_feature;
     }
 
     public String getLast_update() {
