@@ -1,7 +1,7 @@
 package com.tsi.kelan.SakilaSpringProject.entities;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "film_actor")
@@ -20,7 +20,7 @@ public class FilmActor {
     private Film film;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public FilmActorId getId() {
         return id;
@@ -46,12 +46,20 @@ public class FilmActor {
         this.film = film;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public FilmActor(FilmActorId id, Actor actor, Film film, String lastUpdate) {
+        this.id = id;
+        this.actor = actor;
+        this.film = film;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public FilmActor(){}
 }

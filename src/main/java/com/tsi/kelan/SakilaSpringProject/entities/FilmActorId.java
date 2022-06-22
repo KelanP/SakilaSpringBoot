@@ -1,18 +1,18 @@
 package com.tsi.kelan.SakilaSpringProject.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-
 public class FilmActorId implements Serializable {
-    private static final long serialVersionUID = 457197226001553197L;
+    @Serial
+    private static final long serialVersionUID = -5474293822943937787L;
     @Column(name = "actor_id", nullable = false)
     private Integer actorId;
 
@@ -48,5 +48,7 @@ public class FilmActorId implements Serializable {
     public int hashCode() {
         return Objects.hash(actorId, filmId);
     }
+
+
 
 }
