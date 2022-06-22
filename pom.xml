@@ -108,8 +108,11 @@
       <artifactId>webdrivermanager</artifactId>
       <version>5.2.0</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>com.github.ulisesbocchio</groupId>
+      <artifactId>jasypt-spring-boot-starter</artifactId>
+      <version>3.0.4</version>
+    </dependency>
 
   </dependencies>  
   <build> 
@@ -164,6 +167,11 @@
             </resources>
           </deployment>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.ulisesbocchio</groupId>
+        <artifactId>jasypt-maven-plugin</artifactId>
+        <version>3.0.4</version>
       </plugin>
 
     </plugins> 

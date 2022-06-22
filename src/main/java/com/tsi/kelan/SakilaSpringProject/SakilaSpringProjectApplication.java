@@ -8,6 +8,7 @@ import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
 import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
 import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
 import com.tsi.kelan.SakilaSpringProject.repos.CustomerRepository;
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,7 @@ import java.util.Random;
 
 
 @SpringBootApplication
+@EnableEncryptableProperties
 @RestController
 @RequestMapping("/home")
 
