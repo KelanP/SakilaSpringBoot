@@ -36,10 +36,10 @@ public class Customer {
     private Boolean active = false;
 
     @Column(name = "create_date", nullable = false)
-    private Instant createDate;
+    private String createDate;
 
     @Column(name = "last_update")
-    private Instant lastUpdate;
+    private String lastUpdate;
 
 
 
@@ -101,20 +101,34 @@ public class Customer {
         this.active = active;
     }
 
-    public Instant getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Instant createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Customer(Integer id, Store store, String firstName, String lastName, String email, Address address, Boolean active, String createDate, String lastUpdate) {
+        this.id = id;
+        this.store = store;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.active = active;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Customer() {
+    }
 }

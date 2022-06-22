@@ -54,4 +54,13 @@ public class Store {
         this.lastUpdate = lastUpdate;
     }
 
+    public Store(Integer id, Staff managerStaff, Address address, Instant lastUpdate) {
+        this.id = id;
+        this.managerStaff = managerStaff;
+        this.address = address;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Store() {
+    }
 }
