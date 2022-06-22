@@ -1,12 +1,10 @@
-package com.tsi.kelan.SakilaSpringProject.mockito;
+package com.tsi.kelan.SakilaSpringProject.entityTests;
 
 import com.tsi.kelan.SakilaSpringProject.entities.Customer;
-import com.tsi.kelan.SakilaSpringProject.entities.notimportant.Address;
-import com.tsi.kelan.SakilaSpringProject.entities.notimportant.Store;
+import com.tsi.kelan.SakilaSpringProject.entities.more.Address;
+import com.tsi.kelan.SakilaSpringProject.entities.more.Store;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.time.Instant;
 
 
 public class CustomerTest {

@@ -1,4 +1,4 @@
-package com.tsi.kelan.SakilaSpringProject.entities.notimportant;
+package com.tsi.kelan.SakilaSpringProject.entities.more;
 
 import com.tsi.kelan.SakilaSpringProject.entities.Customer;
 

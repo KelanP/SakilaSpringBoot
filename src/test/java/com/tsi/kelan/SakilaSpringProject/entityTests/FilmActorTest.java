@@ -1,4 +1,4 @@
-package com.tsi.kelan.SakilaSpringProject.mockito;
+package com.tsi.kelan.SakilaSpringProject.entityTests;
 
 
 import com.tsi.kelan.SakilaSpringProject.entities.Actor;

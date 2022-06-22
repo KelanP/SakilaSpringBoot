@@ -1,4 +1,4 @@
-package com.tsi.kelan.SakilaSpringProject.entities.notimportant;
+package com.tsi.kelan.SakilaSpringProject.entities.more;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -31,18 +31,12 @@ public class Address {
     private String phone;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
-    @Column(name = "location", columnDefinition = "GEOMETRY(65535) not null")
-    private String location;
+    //@Column(name = "location", columnDefinition = "GEOMETRY(65535) not null")
+    //private String location;
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public Integer getId() {
         return id;
@@ -100,12 +94,28 @@ public class Address {
         this.phone = phone;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Address() {
+    }
+
+    public Address(Integer id, String address, String address2, String district, City city, String postalCode, String phone, String lastUpdate) {
+        this.id = id;
+        this.address = address;
+        this.address2 = address2;
+        this.district = district;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.phone = phone;
+        this.lastUpdate = lastUpdate;
+
+
+
+    }
 }

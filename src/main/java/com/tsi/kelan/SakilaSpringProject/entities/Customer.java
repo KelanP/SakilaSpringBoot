@@ -1,11 +1,9 @@
 package com.tsi.kelan.SakilaSpringProject.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tsi.kelan.SakilaSpringProject.entities.notimportant.Address;
-import com.tsi.kelan.SakilaSpringProject.entities.notimportant.Store;
+import com.tsi.kelan.SakilaSpringProject.entities.more.Address;
+import com.tsi.kelan.SakilaSpringProject.entities.more.Store;
 
 import javax.persistence.*;
-import java.time.Instant;
 
 @Entity
 @Table(name = "customer")
