@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 class Location extends React.Component{
     render(){
         return(
-            <Container>
+            <Container className={"buffer-top"}>
                 <h2>Our Location:</h2>
                 <br/>
                 <img  alt="map-location" class ="responsive center" src={require("../resources/map.png")}/>

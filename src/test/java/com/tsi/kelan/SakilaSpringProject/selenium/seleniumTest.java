@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class seleniumTest{
@@ -50,11 +51,13 @@ public class seleniumTest{
             }
         }
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //sets max wait time of 10 seconds
-        wait.until(titleIs("")); //title of random film is a blank JSON page
+        wait.until(presenceOfElementLocated(By.cssSelector("#randomFilm > h4"))); //title of random film is a blank JSON page
 
-        String URL = driver.getCurrentUrl();
+        WebElement randomFilmTitle = driver.findElement(By.cssSelector("#randomFilm > h4")); //check to see if the 1000th table row is displayed
+        boolean isDisplayed = randomFilmTitle.isDisplayed();
+        Assertions.assertTrue(isDisplayed);
 
-        Assertions.assertEquals("https://sakilaspringproject-1655722832050.azurewebsites.net/home/film/random", URL, "Incorrect Page");
+
 
     }
 
@@ -62,40 +65,40 @@ public class seleniumTest{
     public void NavBarButtonTest(){
         //Home
         driver.get("http://localhost:3000/");
-        driver.findElement(By.xpath("//*[@id='root']/div/nav[1]/div/div/a[1]")).click(); //finding the 'home' button on Navbar using Xpath
+        driver.findElement(By.xpath("//*[@id='root']/div/nav[1]/div/div/a[1]")).click(); //find and click the 'home' button on Navbar using Xpath
         String URlHome = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL,URlHome,"Incorrect Page");
 
         //BrandImage- Home
-        driver.findElement(By.className("navbar-brand")).click(); //finding the 'moviezone logo' image on Navbar by finding its classname
+        driver.findElement(By.className("navbar-brand")).click(); //find and click the logo image on Navbar by finding its classname
         String URLImage = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL,URLImage,"Incorrect Page");
 
         //OurFilms
-        driver.findElement(By.cssSelector("#root > div > nav:nth-child(2) > div > div > a:nth-child(2)")).click(); //finding the 'our films' button on Navbar using css selector
+        driver.findElement(By.cssSelector("#root > div > nav:nth-child(2) > div > div > a:nth-child(2)")).click(); //find and click the 'our films' button on Navbar using css selector
         String URLFilms = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL+"films",URLFilms,"Incorrect Page");
 
         //Pricing
-        driver.findElement(By.linkText("Pricing")).click(); //finding the 'pricing' button on Navbar using the text in the link
+        driver.findElement(By.linkText("Pricing")).click(); //find and click the 'pricing' button on Navbar using the text in the link
         String URLPricing = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL+"pricing",URLPricing,"Incorrect Page");
 
         //FindUs
-        driver.findElement(By.partialLinkText("Find")).click(); //finding the 'find us' button on Navbar using part of the text in the link
+        driver.findElement(By.partialLinkText("Find")).click(); //find and click the 'find us' button on Navbar using part of the text in the link
         String URLLocation = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL+"location",URLLocation,"Incorrect Page");
 
         //Account: See my rentals
-        driver.findElement(By.linkText("Account")).click(); //finding the 'Account' button on Navbar using the text in the link
-        driver.findElement(By.id("account-rentals")).click(); //finding the 'See my Rentals' button on Navbar using its ID
+        driver.findElement(By.linkText("Account")).click(); //find and click the 'Account' button on Navbar using the text in the link
+        driver.findElement(By.id("account-rentals")).click(); //find and click the 'See my Rentals' button on Navbar using its ID
 
         String URLRentals = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL+"rentals",URLRentals,"Incorrect Page");
 
         //Account: Make an account
-        driver.findElement(By.linkText("Account")).click(); //finding the 'Account' button on Navbar using the text in the link
-        driver.findElement(By.id("account-creation")).click(); //finding the 'See my Rentals' button on Navbar using its ID
+        driver.findElement(By.linkText("Account")).click(); //find and click the 'Account' button on Navbar using the text in the link
+        driver.findElement(By.id("account-creation")).click(); //find and click the 'See my Rentals' button on Navbar using its ID
 
         String URLAccount = driver.getCurrentUrl();
         Assertions.assertEquals(HOME_URL+"accountCreation",URLAccount,"Incorrect Page");
@@ -118,6 +121,8 @@ public class seleniumTest{
 
     @Test
     public void accountCreationTest(){
+
+
 
     }
 

@@ -7,11 +7,11 @@ import Container from "react-bootstrap/Container";
 class Pricing extends React.Component{
     render(){
         return(
-            <Container>
-            <h2>Our Prices:</h2>
-            <h4>
+            <Container className={"buffer-top"}>
+            <h2>Pricing:</h2>
+            <p>
                 Prices vary film by film depending on popularity and rarity.
-            </h4>
+            </p>
             </Container>
 
 

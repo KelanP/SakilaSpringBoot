@@ -31,7 +31,7 @@ function FilmList() {
 
 
         return(
-        <Card>
+        <Card className={"buffer-top"}>
             <Card.Header >
                 <div>
                     <h2 className={"text-center"}>All Films</h2>
