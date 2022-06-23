@@ -8,8 +8,8 @@ class Footer extends React.Component{
     render(){
         let year = new Date().getFullYear()
         return (
-            <Navbar fixed={"bottom"} bg="light" expand="lg" className='m-auto'  >
-                <Container>
+            <Navbar fixed={"bottom"} bg="light" expand="lg" className={"text-xs-center"}>
+                <Container >
                     <Navbar.Text>
                         ©Kelan Patel {year}
                     </Navbar.Text>

@@ -4,6 +4,7 @@ import com.tsi.kelan.SakilaSpringProject.entities.more.Address;
 import com.tsi.kelan.SakilaSpringProject.entities.more.Store;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "customer")
@@ -13,7 +14,7 @@ public class Customer {
     @Column(name = "customer_id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 
@@ -26,7 +27,7 @@ public class Customer {
     @Column(name = "email", length = 50)
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "address_id",referencedColumnName = "address_id",nullable = false)
     private Address address;
 

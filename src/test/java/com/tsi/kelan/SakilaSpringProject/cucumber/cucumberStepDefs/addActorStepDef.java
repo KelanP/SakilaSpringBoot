@@ -1,11 +1,8 @@
 package com.tsi.kelan.SakilaSpringProject.cucumber.cucumberStepDefs;
 
 import com.tsi.kelan.SakilaSpringProject.entities.Actor;
-import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
+import com.tsi.kelan.SakilaSpringProject.repos.*;
 import com.tsi.kelan.SakilaSpringProject.SakilaSpringProjectApplication;
-import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
-import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
-import com.tsi.kelan.SakilaSpringProject.repos.CustomerRepository;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +20,7 @@ public class addActorStepDef {
     private FilmActorRepository filmactorRepository;
     @Autowired
     private CustomerRepository customerRepository;
+
 
     SakilaSpringProjectApplication underTest = new SakilaSpringProjectApplication(actorRepository,filmRepository,filmactorRepository,customerRepository);
 

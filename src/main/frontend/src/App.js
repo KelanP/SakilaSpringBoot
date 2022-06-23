@@ -13,7 +13,8 @@ function App() {
         <img alt="moviezone logo" class ="logo-center logo-responsive" src={"https://i.imgur.com/ge2l0jq.png"} height="100" />
         <NavBar/>
 
-        <Footer/>
+        <div className={"center"}><Footer/></div>
+
     </div>
     
   );

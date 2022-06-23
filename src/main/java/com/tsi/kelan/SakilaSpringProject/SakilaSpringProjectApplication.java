@@ -1,19 +1,15 @@
 package com.tsi.kelan.SakilaSpringProject;
 
-import com.tsi.kelan.SakilaSpringProject.entities.Actor;
-import com.tsi.kelan.SakilaSpringProject.entities.Customer;
-import com.tsi.kelan.SakilaSpringProject.entities.Film;
-import com.tsi.kelan.SakilaSpringProject.entities.FilmActor;
-import com.tsi.kelan.SakilaSpringProject.repos.ActorRepository;
-import com.tsi.kelan.SakilaSpringProject.repos.FilmActorRepository;
-import com.tsi.kelan.SakilaSpringProject.repos.FilmRepository;
-import com.tsi.kelan.SakilaSpringProject.repos.CustomerRepository;
+import com.tsi.kelan.SakilaSpringProject.entities.*;
+import com.tsi.kelan.SakilaSpringProject.repos.*;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -24,25 +20,18 @@ import java.util.Random;
 @EnableEncryptableProperties
 @RestController
 @RequestMapping("/home")
-
-
 public class SakilaSpringProjectApplication {
 
 	@Autowired
 	private ActorRepository actorRepository;
 	@Autowired
 	private FilmRepository filmRepository;
+
 	@Autowired
 	private FilmActorRepository filmActorRepository;
+
 	@Autowired
 	private CustomerRepository customerRepository;
-
-
-
-	public static void main(String[] args) {
-		SpringApplication.run(SakilaSpringProjectApplication.class, args);
-	}
-
 
 
 
@@ -51,6 +40,11 @@ public class SakilaSpringProjectApplication {
 		this.filmRepository = filmRepository;
 		this.filmActorRepository = filmActorRepository;
 		this.customerRepository = customerRepository;
+
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(SakilaSpringProjectApplication.class, args);
 	}
 
 
@@ -119,11 +113,9 @@ public class SakilaSpringProjectApplication {
 	}
 
 	@GetMapping("/film/pwrsearch/{searchRequest}")
-	public Page<Film> getAllBooks(Pageable pageable, @PathVariable("searchRequest") String keyword) {
+	public Page<Film> getAllFilmsLike(Pageable pageable, @PathVariable("searchRequest") String keyword) {
 		return filmRepository.findAll(pageable,keyword);
 	}
-
-
 
 	@PostMapping("/film/create")
 	public @ResponseBody
@@ -158,11 +150,6 @@ public class SakilaSpringProjectApplication {
 
 //CRUD METHODS FOR CUSTOMER TABLE
 
-@GetMapping("/customer/all")
-public @ResponseBody
-Iterable<Customer>getAllCustomers(){
-	return customerRepository.findAll();
-}
 
 @GetMapping("/customer/{id}")
 public @ResponseBody
