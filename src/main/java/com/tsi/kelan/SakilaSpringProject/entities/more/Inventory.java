@@ -22,7 +22,7 @@ public class Inventory {
     private Store store;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -48,12 +48,21 @@ public class Inventory {
         this.store = store;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Inventory() {
+    }
+
+    public Inventory(Integer id, Film film, Store store, String lastUpdate) {
+        this.id = id;
+        this.film = film;
+        this.store = store;
+        this.lastUpdate = lastUpdate;
+    }
 }
