@@ -15,7 +15,7 @@ public class Country {
     private String country;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -33,12 +33,20 @@ public class Country {
         this.country = country;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Country() {
+    }
+
+    public Country(Integer id, String country, String lastUpdate) {
+        this.id = id;
+        this.country = country;
+        this.lastUpdate = lastUpdate;
+    }
 }
