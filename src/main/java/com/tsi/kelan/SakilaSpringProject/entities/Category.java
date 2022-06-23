@@ -17,18 +17,18 @@ public class Category {
     private String name;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<FilmCategory> filmCategories = new LinkedHashSet<>();
-
-    public Set<FilmCategory> getFilmCategories() {
-        return filmCategories;
-    }
-
-    public void setFilmCategories(Set<FilmCategory> filmCategories) {
-        this.filmCategories = filmCategories;
-    }
+//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<FilmCategory> filmCategories = new LinkedHashSet<>();
+//
+//    public Set<FilmCategory> getFilmCategories() {
+//        return filmCategories;
+//    }
+//
+//    public void setFilmCategories(Set<FilmCategory> filmCategories) {
+//        this.filmCategories = filmCategories;
+//    }
 
     public Integer getId() {
         return id;
@@ -46,12 +46,22 @@ public class Category {
         this.name = name;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Category() {
+    }
+
+    public Category(Integer id, String name, String lastUpdate) {
+        this.id = id;
+        this.name = name;
+        this.lastUpdate = lastUpdate;
+    }
 }
+
+
