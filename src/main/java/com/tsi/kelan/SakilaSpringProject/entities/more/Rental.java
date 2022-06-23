@@ -14,7 +14,7 @@ public class Rental {
     private Integer id;
 
     @Column(name = "rental_date", nullable = false)
-    private Instant rentalDate;
+    private String rentalDate;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "inventory_id", nullable = false)
@@ -25,14 +25,14 @@ public class Rental {
     private Customer customer;
 
     @Column(name = "return_date")
-    private Instant returnDate;
+    private String returnDate;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "staff_id", nullable = false)
     private Staff staff;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -42,11 +42,11 @@ public class Rental {
         this.id = id;
     }
 
-    public Instant getRentalDate() {
+    public String getRentalDate() {
         return rentalDate;
     }
 
-    public void setRentalDate(Instant rentalDate) {
+    public void setRentalDate(String rentalDate) {
         this.rentalDate = rentalDate;
     }
 
@@ -66,11 +66,11 @@ public class Rental {
         this.customer = customer;
     }
 
-    public Instant getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Instant returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -82,12 +82,24 @@ public class Rental {
         this.staff = staff;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Rental(Integer id, String rentalDate, Inventory inventory, Customer customer, String returnDate, Staff staff, String lastUpdate) {
+        this.id = id;
+        this.rentalDate = rentalDate;
+        this.inventory = inventory;
+        this.customer = customer;
+        this.returnDate = returnDate;
+        this.staff = staff;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Rental() {
+    }
 }
