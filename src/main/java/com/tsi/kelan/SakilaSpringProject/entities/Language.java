@@ -15,7 +15,7 @@ public class Language {
     private String name;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -33,12 +33,20 @@ public class Language {
         this.name = name;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Language() {
+    }
+
+    public Language(Integer id, String name, String lastUpdate) {
+        this.id = id;
+        this.name = name;
+        this.lastUpdate = lastUpdate;
+    }
 }
