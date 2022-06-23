@@ -20,7 +20,7 @@ public class FilmCategory {
     private Category category;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public FilmCategoryId getId() {
         return id;
@@ -46,11 +46,21 @@ public class FilmCategory {
         this.category = category;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public FilmCategory() {
+    }
+
+    public FilmCategory(FilmCategoryId id, Film film, Category category, String lastUpdate) {
+        this.id = id;
+        this.film = film;
+        this.category = category;
         this.lastUpdate = lastUpdate;
     }
 
