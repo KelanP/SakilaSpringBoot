@@ -40,4 +40,12 @@ public class FilmText {
         this.description = description;
     }
 
+    public FilmText() {
+    }
+
+    public FilmText(Integer id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
 }

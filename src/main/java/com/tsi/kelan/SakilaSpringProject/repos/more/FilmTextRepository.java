@@ -1,4 +1,4 @@
-package com.tsi.kelan.SakilaSpringProject.repos.notimportant;
+package com.tsi.kelan.SakilaSpringProject.repos.more;
 
 import com.tsi.kelan.SakilaSpringProject.entities.more.FilmText;
 import org.springframework.data.jpa.repository.JpaRepository;
