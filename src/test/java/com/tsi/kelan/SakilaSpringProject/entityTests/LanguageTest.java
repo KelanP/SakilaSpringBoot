@@ -14,6 +14,7 @@ public class LanguageTest {
     @Test
     public void testGettersAndSetters(){
         Language testLanguage = new Language();
+
         testLanguage.setId(10);
         testLanguage.setName("Esperanto");
         testLanguage.setLastUpdate("2016-02-15 05:03:42");
