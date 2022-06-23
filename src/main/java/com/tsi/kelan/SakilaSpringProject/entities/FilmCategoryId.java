@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Embeddable
 public class FilmCategoryId implements Serializable {
-    private static final long serialVersionUID = 9177533082545149495L;
+    private static final long serialVersionUID = 9177533082545149495L; //serialVersionUID attribute to remember versions of a Serializable class to verify that a loaded class and the serialized object are compatible
     @Column(name = "film_id", nullable = false)
     private Integer filmId;
 
@@ -46,4 +46,11 @@ public class FilmCategoryId implements Serializable {
         return Objects.hash(filmId, categoryId);
     }
 
+    public FilmCategoryId() {
+    }
+
+    public FilmCategoryId(Integer filmId, Integer categoryId) {
+        this.filmId = filmId;
+        this.categoryId = categoryId;
+    }
 }
