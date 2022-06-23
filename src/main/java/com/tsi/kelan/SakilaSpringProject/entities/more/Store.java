@@ -20,7 +20,7 @@ public class Store {
     private Address address;
 
     @Column(name = "last_update", nullable = false)
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -46,15 +46,15 @@ public class Store {
         this.address = address;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
-    public Store(Integer id, Staff managerStaff, Address address, Instant lastUpdate) {
+    public Store(Integer id, Staff managerStaff, Address address, String lastUpdate) {
         this.id = id;
         this.managerStaff = managerStaff;
         this.address = address;
@@ -63,4 +63,6 @@ public class Store {
 
     public Store() {
     }
+
+
 }
