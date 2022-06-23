@@ -27,13 +27,13 @@ public class Payment {
     private Rental rental;
 
     @Column(name = "amount", nullable = false, precision = 5, scale = 2)
-    private BigDecimal amount;
+    private float amount;
 
     @Column(name = "payment_date", nullable = false)
-    private Instant paymentDate;
+    private String paymentDate;
 
     @Column(name = "last_update")
-    private Instant lastUpdate;
+    private String lastUpdate;
 
     public Integer getId() {
         return id;
@@ -67,28 +67,40 @@ public class Payment {
         this.rental = rental;
     }
 
-    public BigDecimal getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
     }
 
-    public Instant getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Instant paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 
-    public Instant getLastUpdate() {
+    public String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Instant lastUpdate) {
+    public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
+    public Payment() {
+    }
+
+    public Payment(Integer id, Customer customer, Staff staff, Rental rental, float amount, String paymentDate, String lastUpdate) {
+        this.id = id;
+        this.customer = customer;
+        this.staff = staff;
+        this.rental = rental;
+        this.amount = amount;
+        this.paymentDate = paymentDate;
+        this.lastUpdate = lastUpdate;
+    }
 }
